@@ -3,13 +3,18 @@ class App extends Component{
   constructor(props) {
     super(props);
     this.state={
-      percent:"0%"
+      percent:"1%"
     }
-    this.changePercent=this.changePercent.bind(this);
   }
 
   changePercent(p){
     this.setState({percent:p})
+  }
+
+  delayChangePercent(p){
+    setTimeout(function() {
+      this.changePercent(p)
+    }.bind(this), 5000)
   }
 
   controlButton() {
@@ -31,6 +36,9 @@ class App extends Component{
               <div id="progress-bar" className="progress-bar" style={{backgroundColor:"#fe5196",width:this.state.percent,height:"100%",borderRadius:"10px"}}>{this.state.percent}</div>
             </div>
             { this.controlButton() }
+            <div>
+              <button id="delay-100" onClick={() => this.delayChangePercent("100%")}>delay100%</button>
+            </div>
           </div>
         );
     }
