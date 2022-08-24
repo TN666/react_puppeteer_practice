@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import myButton from './component/button'
+
 class App extends Component{
   constructor(props) {
     super(props);
@@ -38,6 +40,7 @@ class App extends Component{
             { this.controlButton() }
             <div>
               <button id="delay-100" onClick={() => this.delayChangePercent("100%")}>delay100%</button>
+              { myButton(() => {}) }
             </div>
           </div>
         );
